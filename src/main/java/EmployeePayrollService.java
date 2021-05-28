@@ -1,6 +1,7 @@
 import java.sql.Date;
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Map;
 
 
 public class EmployeePayrollService {
@@ -90,5 +91,21 @@ public class EmployeePayrollService {
 
     public List<EmployeePayrollData> readEmployeePayrollDataForDataRange( LocalDate startDate, LocalDate endDate){
         return employeePayrollDBService.getEmployeePayrollDataForDateRange(startDate,endDate);
+    }
+
+    public Map<String, Double> getAverageSalaryGroupByGender(){
+        return employeePayrollDBService.readAverageSalaryGroupByGender();
+    }
+
+    public Map<String, Double> getMinimumSalaryGroupByGender(){
+        return employeePayrollDBService.readMinimumSalaryGroupByGender();
+    }
+
+    public Map<String, Double> getMaximumSalaryGroupByGender(){
+        return employeePayrollDBService.readMaximumSalaryGroupByGender();
+    }
+
+    public Map<String, Double> getCountOfEmployeeGroupByGender(){
+        return employeePayrollDBService.readCountOfEmployeesGroupByGender();
     }
 }
