@@ -33,4 +33,15 @@ class EmployeePayrollServiceTest {
         System.out.println(employeePayrollData);
         Assertions.assertTrue(result);
     }
+
+    @Test
+    public void givenDateRange_WhenRetrieved_ShouldReturnEmployeeCount(){
+        EmployeePayrollService employeePayrollService = new EmployeePayrollService();
+        employeePayrollService.readEmployeePayrollData(EmployeePayrollService.IOServices.DB_IO);
+        LocalDate startDate = LocalDate.of(2018,01,01);
+        LocalDate endDate = LocalDate.now();
+        List<EmployeePayrollData> employeePayrollData = employeePayrollService.readEmployeePayrollDataForDataRange(startDate,endDate);
+        System.out.println(employeePayrollData);
+        Assertions.assertEquals(3,employeePayrollData.size());
+    }
 }
