@@ -10,9 +10,9 @@ public class EmployeePayrollService {
     private EmployeePayrollDBService employeePayrollDBService;
 
     /**
-     * created ioService enum class for CONSOLE_IO, FILE_IO,DB_IO
+     * created ioService enum class for DB_IO
      */
-    public enum IOServices {CONSOLE_ID, DB_IO, FILE_IO, REST_IO}
+    public enum IOServices {DB_IO}
 
     //created default constructor for singleton class
     public EmployeePayrollService()
@@ -22,7 +22,6 @@ public class EmployeePayrollService {
 
     /**
      * created parameterized constructor
-     * @param employeePayrollList employeePayrollList
      */
     public EmployeePayrollService(List<EmployeePayrollData> employeePayrollList){
         this();
@@ -32,8 +31,6 @@ public class EmployeePayrollService {
 
     /**
      * created readEmployeePayrollData method to read data from ioService of database Io
-     * @param ioService ioService
-     * @return this.employeePayrollList
      */
     public List<EmployeePayrollData> readEmployeePayrollData(IOServices ioService)
     {
@@ -44,8 +41,6 @@ public class EmployeePayrollService {
 
     /**
      * created checkEmployeePayrollSyncWithDB method to check whether updated data is synced with database or not
-     * @param name name
-     * @return employeePayrollDataList.get(0).equals(getEmployeePayrollData(name))
      */
     public boolean checkEmployeePayrollInSyncWithDB(String name)
     {

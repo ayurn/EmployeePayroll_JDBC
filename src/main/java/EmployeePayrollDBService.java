@@ -18,7 +18,6 @@ public class EmployeePayrollDBService {
 
     /**
      * create singleton design principle to get single instance
-     * @return eemployeePayrollDBService
      */
     public static EmployeePayrollDBService getInstance(){
         if(employeePayrollDBService == null)
@@ -28,8 +27,6 @@ public class EmployeePayrollDBService {
 
     /**
      * created getConnection() method to make connection with mysql database
-     * @return connection
-     * @throws SQLException
      */
     private Connection getConnection() throws SQLException {
         String jdbcURL = "jdbc:mysql://localhost:3306/payroll_service?useSSL=false";
@@ -45,7 +42,6 @@ public class EmployeePayrollDBService {
     /**
      * created readData() to read data from database table
      * added try catch block to throw sql exception
-     * @return employeePayrollList
      */
     public List<EmployeePayrollData> readData() {
         String sql = "SELECT * FROM employee_service";
@@ -71,9 +67,6 @@ public class EmployeePayrollDBService {
 
     /**
      * created getEmployeePayrollDataForDateRange method to retrieve data from database for particular date range
-     * @param startDate in local date format
-     * @param endDate in local date format
-     * @return this.getEmployeePayrollDataUsingDB(sql);
      */
     public List<EmployeePayrollData> getEmployeePayrollDataForDateRange(LocalDate startDate, LocalDate endDate)
     {
@@ -83,9 +76,7 @@ public class EmployeePayrollDBService {
 
     /**
      * created getEmployeePayrollDataUsingDB() method to retrieve data from database
-     * by tabking sql query as input
-     * @param sql getEmployeePayrollDateRange
-     * @return employeePayrollList
+     * by taking sql query as input
      */
     private List<EmployeePayrollData> getEmployeePayrollDataUsingDB(String sql)
     {
@@ -104,9 +95,6 @@ public class EmployeePayrollDBService {
 
     /**
      * created method to update employeePayrollData
-     * @param name takes the name as input
-     * @param salary and salary as the input
-     * @return values to updateEmployeeDataUsingStatement method
      */
     public int updateEmployeePayrollData(String name, Double salary){
         return this.updateEmployeeDataUsingStatementForSalary(name,salary);
@@ -180,8 +168,6 @@ public class EmployeePayrollDBService {
     /**
      * created private getEmployeePayrollData method to get all data from database table
      * added try and catch block to throw sql exception
-     * @param result resultSet
-     * @return employeePayrollDataList
      */
     private List<EmployeePayrollData> getEmployeePayrollData(ResultSet result){
         List<EmployeePayrollData> employeePayrollList = new ArrayList<>();

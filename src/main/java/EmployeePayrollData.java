@@ -36,7 +36,7 @@ public class EmployeePayrollData {
                 '}';
     }
 
-    //Overiding equals method
+    //Overrding equals method
     @Override
     public boolean equals(Object o)
     {
